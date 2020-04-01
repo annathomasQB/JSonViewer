@@ -22,6 +22,13 @@ class ViewController: UIViewController {
         jSonFeedertableView.delegate = self
         jSonFeedertableView.backgroundColor = .white
         jSonFeedertableView.register(UITableViewCell.self, forCellReuseIdentifier: Constants.cellReuseIdentifier)
+        
+        
+        // make tableview frame just below the statu bar
+        let BarHeight : CGFloat = UIApplication.shared.statusBarFrame.size.height
+        let frame = self.jSonFeedertableView.frame
+        jSonFeedertableView.frame = CGRect(x: 0, y: BarHeight, width: frame.width, height: frame.height - BarHeight)
+        
         view.addSubview(jSonFeedertableView)
     }
 
