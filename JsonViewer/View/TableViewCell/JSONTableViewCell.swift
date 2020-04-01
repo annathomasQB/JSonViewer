@@ -40,7 +40,7 @@ class JSONTableViewCell: UITableViewCell {
     let descriptionLabel:UILabel = {
         let label = UILabel()
         label.font = UIFont.systemFont(ofSize: 14)
-        label.numberOfLines = 3
+        label.numberOfLines = 0
         label.textColor = .black
         label.translatesAutoresizingMaskIntoConstraints = false
         return label
@@ -68,6 +68,7 @@ class JSONTableViewCell: UITableViewCell {
             descriptionLabel.topAnchor.constraint(equalTo: titleLabel.bottomAnchor, constant: 8),
             descriptionLabel.leadingAnchor.constraint(equalTo: marginGuide.leadingAnchor, constant: 8),
             descriptionLabel.trailingAnchor.constraint(equalTo: marginGuide.trailingAnchor, constant: 2),
+            descriptionLabel.bottomAnchor.constraint(equalTo: marginGuide.bottomAnchor, constant: 2)
             ])
         
         

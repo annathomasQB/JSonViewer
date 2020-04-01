@@ -23,17 +23,23 @@ class ViewController: UIViewController {
 
         view.addSubview(jSonFeederTableView)
 
+        
+
+        let statusBarHeight = UIApplication.shared.statusBarFrame.height
+        
+        let navigationBar: UINavigationBar = UINavigationBar(frame: CGRect(x: 0, y: 0, width: self.view.frame.width, height: 44 + statusBarHeight))
+        self.view.addSubview(navigationBar)
+
+        // top anchor
+        jSonFeederTableView.topAnchor.constraint(equalTo: view.topAnchor).isActive = true
         // leading anchor
         jSonFeederTableView.leadingAnchor.constraint(equalTo: view.leadingAnchor).isActive = true
         // trailing anchor
         jSonFeederTableView.trailingAnchor.constraint(equalTo: view.trailingAnchor).isActive = true
-        // top anchor
-        jSonFeederTableView.topAnchor.constraint(equalTo: view.topAnchor).isActive = true
         // bottom anchor
         jSonFeederTableView.bottomAnchor.constraint(equalTo: view.bottomAnchor).isActive = true
 
         jSonFeederTableView.dataSource = self
-        jSonFeederTableView.delegate = self
         jSonFeederTableView.allowsSelection = false
         jSonFeederTableView.rowHeight = UITableView.automaticDimension
         jSonFeederTableView.estimatedRowHeight = 50
@@ -70,10 +76,5 @@ extension ViewController: UITableViewDataSource {
         return cell
     }
     
-    
-}
-
-// MARK: - UITableViewDelegate
-extension ViewController: UITableViewDelegate {
     
 }
