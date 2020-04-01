@@ -15,4 +15,7 @@ struct Constants {
     
     // Json feeder url
     static let jsonFeederURL =  "https://dl.dropboxusercontent.com/s/2iodh4vg0eortkl/facts.json"
+    
+    // json dictionay key for data
+    static let jsonKeyRow = "rows"
 }
