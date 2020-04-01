@@ -22,11 +22,13 @@ class ViewController: UIViewController {
         jSonFeedertableView.delegate = self
         jSonFeedertableView.backgroundColor = .white
         jSonFeedertableView.register(UITableViewCell.self, forCellReuseIdentifier: Constants.cellReuseIdentifier)
+        view.addSubview(jSonFeedertableView)
     }
 
 
 }
 
+// MARK: - UITableViewDataSource
 extension ViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return 30
@@ -42,6 +44,7 @@ extension ViewController: UITableViewDataSource {
     
 }
 
+// MARK: - UITableViewDelegate
 extension ViewController: UITableViewDelegate {
     
 }
