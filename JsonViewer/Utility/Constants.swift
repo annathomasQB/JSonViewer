@@ -12,4 +12,7 @@ struct Constants {
     
     // Reuse identifier
     static let cellReuseIdentifier = "jsonFeederCellIdentifier"
+    
+    // Json feeder url
+    static let jsonFeederURL =  "https://dl.dropboxusercontent.com/s/2iodh4vg0eortkl/facts.json"
 }

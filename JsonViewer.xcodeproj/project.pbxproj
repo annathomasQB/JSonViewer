@@ -12,6 +12,8 @@
 		0B237F5C2433329900B691BF /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0B237F5B2433329900B691BF /* Assets.xcassets */; };
 		0B237F5F2433329900B691BF /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0B237F5D2433329900B691BF /* LaunchScreen.storyboard */; };
 		0B4E835D243455DD00EA9CDA /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B4E835C243455DD00EA9CDA /* Constants.swift */; };
+		0B4E8360243462FD00EA9CDA /* JSONModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B4E835F243462FD00EA9CDA /* JSONModel.swift */; };
+		0B4E83652434A38400EA9CDA /* ViewControllerModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B4E83642434A38400EA9CDA /* ViewControllerModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -22,6 +24,8 @@
 		0B237F5E2433329900B691BF /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		0B237F602433329900B691BF /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		0B4E835C243455DD00EA9CDA /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		0B4E835F243462FD00EA9CDA /* JSONModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JSONModel.swift; sourceTree = "<group>"; };
+		0B4E83642434A38400EA9CDA /* ViewControllerModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewControllerModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -56,6 +60,8 @@
 			children = (
 				0B237F542433329600B691BF /* AppDelegate.swift */,
 				0B237F562433329600B691BF /* ViewController.swift */,
+				0B4E83642434A38400EA9CDA /* ViewControllerModel.swift */,
+				0B4E835E2434622C00EA9CDA /* Model */,
 				0B4E835B243455C700EA9CDA /* Utility */,
 				0B237F5B2433329900B691BF /* Assets.xcassets */,
 				0B237F5D2433329900B691BF /* LaunchScreen.storyboard */,
@@ -70,6 +76,14 @@
 				0B4E835C243455DD00EA9CDA /* Constants.swift */,
 			);
 			path = Utility;
+			sourceTree = "<group>";
+		};
+		0B4E835E2434622C00EA9CDA /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				0B4E835F243462FD00EA9CDA /* JSONModel.swift */,
+			);
+			path = Model;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -143,6 +157,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				0B237F572433329600B691BF /* ViewController.swift in Sources */,
+				0B4E83652434A38400EA9CDA /* ViewControllerModel.swift in Sources */,
+				0B4E8360243462FD00EA9CDA /* JSONModel.swift in Sources */,
 				0B237F552433329600B691BF /* AppDelegate.swift in Sources */,
 				0B4E835D243455DD00EA9CDA /* Constants.swift in Sources */,
 			);
