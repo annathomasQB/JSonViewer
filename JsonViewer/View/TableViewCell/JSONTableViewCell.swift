@@ -15,10 +15,14 @@ class JSONTableViewCell: UITableViewCell {
         didSet {
             guard let jsonModel = jsonModel else {return}
             if let title = jsonModel.title {
-                titleLabel.text = title
+                self.titleLabel.text = title
+            }else {
+                self.titleLabel.text = Constants.emptyText
             }
             if let description = jsonModel.description {
-                descriptionLabel.text = description
+                self.descriptionLabel.text = description
+            }else {
+                self.descriptionLabel.text = Constants.emptyText
             }
             if let imageName = jsonModel.image {
                 imageLoader.obtainImageWithPath(imagePath: imageName) { (image) in

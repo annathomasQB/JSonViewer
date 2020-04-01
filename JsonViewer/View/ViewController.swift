@@ -21,7 +21,8 @@ class ViewController: UIViewController {
         // initialize basic table view setup
         jSonFeederTableView = UITableView()
         jSonFeederTableView.translatesAutoresizingMaskIntoConstraints = false
-
+        jSonFeederTableView.tableFooterView = UIView()
+        
         view.addSubview(jSonFeederTableView)
 
         refreshControl = UIRefreshControl()

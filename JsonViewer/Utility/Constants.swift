@@ -22,4 +22,7 @@ struct Constants {
     
     // placeholder image
     static let placeholderImage = "placeholder"
+    
+    // nil text
+    static let emptyText = ""
 }
