@@ -28,7 +28,7 @@ class ViewControllerModel {
     /// Function that requests for the json Feed from url
     /// - Parameters:
     ///     - completion: Completion handler
-    func requestJsonFeedAPI(completion: @escaping () -> Void) {
+    func requestJsonFeedAPI(completion: @escaping (String?) -> Void) {
         guard let jsonURL = URL(string: Constants.jsonFeederURL) else {
             return
         }
@@ -47,10 +47,10 @@ class ViewControllerModel {
                     if let jsonData: Data = jsonString.data(using: .utf8) {
                         do {
                             if let json = try JSONSerialization.jsonObject(with: jsonData, options : .allowFragments) as? Dictionary<String,Any> {
-                                
+                                let title = json[Constants.jsonKeyTitle] as? String
                                 if let jsonRows = json[Constants.jsonKeyRow] as? [Dictionary<String, Any>] {
                                     self.jsonModels = JSONModel.parse(json: jsonRows)!
-                                    completion()
+                                    completion(title)
                                 }
                             }
                         }

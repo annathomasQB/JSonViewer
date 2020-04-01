@@ -30,7 +30,8 @@ class ViewController: UIViewController {
         
         let statusBarHeight = UIApplication.shared.statusBarFrame.height
         
-        let navigationBar: UINavigationBar = UINavigationBar(frame: CGRect(x: 0, y: 0, width: self.view.frame.width, height: 44 + statusBarHeight))
+        let navigationBar = UINavigationBar(frame: CGRect(x: 0, y: 0, width: self.view.frame.width, height: 44 + statusBarHeight))
+        navigationBar.items = [navigationItem]
         self.view.addSubview(navigationBar)
 
         // top anchor
@@ -59,10 +60,13 @@ class ViewController: UIViewController {
     }
     
     @objc private func refreshTable() {
-        viewModel.requestJsonFeedAPI {
+        viewModel.requestJsonFeedAPI { (title) in
             DispatchQueue.main.async {
                 self.jSonFeederTableView.reloadData()
                 self.refreshControl.endRefreshing()
+                if let title = title {
+                    self.navigationItem.title = title
+                }
             }
         }
     }
