@@ -27,6 +27,12 @@ class ImageLoader {
                 completionHandler(image)
             }
         } else {
+            if let placeholder = UIImage(named: Constants.placeholderImage) {
+                DispatchQueue.main.async {
+                    completionHandler(placeholder)
+                }
+
+            }
             let url: URL! = URL(string: imagePath)
             task = session.downloadTask(with: url, completionHandler: { (location, response, error) in
                 if let data = try? Data(contentsOf: url) {

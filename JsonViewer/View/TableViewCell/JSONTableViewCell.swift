@@ -26,6 +26,8 @@ class JSONTableViewCell: UITableViewCell {
                         self.jsonImageView.image = image
                     }
                 }
+            }else {
+                self.jsonImageView.image = UIImage(named: Constants.placeholderImage)
             }
         }
     }
@@ -37,6 +39,7 @@ class JSONTableViewCell: UITableViewCell {
         return view
     }()
     
+    // title label properties
     let titleLabel:UILabel = {
         let label = UILabel()
         label.font = UIFont.boldSystemFont(ofSize: 20)
@@ -45,6 +48,7 @@ class JSONTableViewCell: UITableViewCell {
         return label
     }()
     
+    // description label properties
     let descriptionLabel:UILabel = {
         let label = UILabel()
         label.font = UIFont.systemFont(ofSize: 14)
@@ -54,11 +58,12 @@ class JSONTableViewCell: UITableViewCell {
         return label
     }()
     
+    // image view properties
     let jsonImageView:UIImageView = {
         let img = UIImageView()
         img.contentMode = .scaleAspectFill // image will never be strecthed vertially or horizontally
         img.translatesAutoresizingMaskIntoConstraints = false // enable autolayout
-        img.layer.cornerRadius = 35
+        img.layer.cornerRadius = 30
         img.clipsToBounds = true
         return img
     }()
@@ -70,17 +75,20 @@ class JSONTableViewCell: UITableViewCell {
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
         
+        // add the elements to the content view
         self.contentView.addSubview(jsonImageView)
         self.contentView.addSubview(titleLabel)
         self.contentView.addSubview(descriptionLabel)
+        
         let marginGuide = contentView.layoutMarginsGuide
 
+        // activate layout constraints
         NSLayoutConstraint.activate([
             // imageview
             jsonImageView.centerYAnchor.constraint(equalTo: marginGuide.centerYAnchor),
             jsonImageView.leadingAnchor.constraint(equalTo: marginGuide.leadingAnchor, constant: 2),
-            jsonImageView.widthAnchor.constraint(equalToConstant: 70),
-            jsonImageView.heightAnchor.constraint(equalToConstant: 70),
+            jsonImageView.widthAnchor.constraint(equalToConstant: 60),
+            jsonImageView.heightAnchor.constraint(equalToConstant: 60),
             
             // title
             titleLabel.topAnchor.constraint(equalTo: marginGuide.topAnchor),

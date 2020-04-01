@@ -18,4 +18,7 @@ struct Constants {
     
     // json dictionay key for data
     static let jsonKeyRow = "rows"
+    
+    // placeholder image
+    static let placeholderImage = "placeholder"
 }

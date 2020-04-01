@@ -11,16 +11,23 @@ import Foundation
 class ViewControllerModel {
     var jsonModels = [JSONModel]()
     
-    
+    /// Function that returns the model for the cell at indexPath
+    /// - Parameters:
+    ///     - indexPath : the index path related to cell
+    /// - Returns: JSon model object at index path
     func data(forRowAt indexPath: IndexPath) -> JSONModel {
         return jsonModels[indexPath.row]
     }
     
+    /// Function that returns number of rows
+    /// - Returns: Total count of json models
     func numberOfRows() -> Int {
         return jsonModels.count
     }
     
     /// Function that requests for the json Feed from url
+    /// - Parameters:
+    ///     - completion: Completion handler
     func requestJsonFeedAPI(completion: @escaping () -> Void) {
         guard let jsonURL = URL(string: Constants.jsonFeederURL) else {
             return
