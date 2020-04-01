@@ -12,7 +12,8 @@ class ViewController: UIViewController {
 
     var jSonFeederTableView = UITableView()
     var viewModel = ViewControllerModel()
-
+    private var refreshControl = UIRefreshControl()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
@@ -23,8 +24,10 @@ class ViewController: UIViewController {
 
         view.addSubview(jSonFeederTableView)
 
+        refreshControl = UIRefreshControl()
+        jSonFeederTableView.refreshControl = refreshControl
+        refreshControl.addTarget(self, action: #selector(refreshTable), for: .valueChanged)
         
-
         let statusBarHeight = UIApplication.shared.statusBarFrame.height
         
         let navigationBar: UINavigationBar = UINavigationBar(frame: CGRect(x: 0, y: 0, width: self.view.frame.width, height: 44 + statusBarHeight))
@@ -51,15 +54,18 @@ class ViewController: UIViewController {
         let frame = self.jSonFeederTableView.frame
         jSonFeederTableView.frame = CGRect(x: 0, y: BarHeight, width: frame.width, height: frame.height - BarHeight)
         
-        
+        refreshTable()
+
+    }
+    
+    @objc private func refreshTable() {
         viewModel.requestJsonFeedAPI {
             DispatchQueue.main.async {
                 self.jSonFeederTableView.reloadData()
+                self.refreshControl.endRefreshing()
             }
         }
     }
-    
-
 
 
 }
